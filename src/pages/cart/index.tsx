@@ -24,7 +24,7 @@ const cartPage = () => {
 	}, 0);
 
 	return cartItemsArray.length ? (
-		<div className='p-0 sm:px-10'>
+		<div className='p-0 sm:px-10 min-h-dvh'>
 			<div className='flex flex-row items-center justify-center mt-6'>
 				<svg
 					width='36px'
@@ -117,7 +117,7 @@ const cartPage = () => {
 			</div>
 		</div>
 	) : (
-		<div className='flex flex-row items-center justify-center'>
+		<div className='flex flex-row items-center justify-center min-h-dvh'>
 			<svg
 				className='mt-6'
 				width='36px'

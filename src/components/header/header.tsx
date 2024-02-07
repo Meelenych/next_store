@@ -1,6 +1,7 @@
 'use client';
 import Link from 'next/dist/client/link';
 import React, { useState } from 'react';
+import s from './header.module.css';
 
 const header = () => {
 	const [logIn, setLogIn] = useState(false);
@@ -53,31 +54,43 @@ const header = () => {
 					<nav className='md:flex-1'>
 						<div className='navbar bg-base-100 justify-between'>
 							<ul className='flex-1 justify-around hidden md:flex'>
-								<li>
+								<li className={`${s.navItem} flex text-xl items-center `}>
+									<svg
+										className={`mr-3 ${s.svgIcon}`}
+										width='36px'
+										height='36px'
+										viewBox='-1.5 0 13 13'>
+										<path
+											id='Path_1'
+											data-name='Path 1'
+											d='M80.974,837h-10V825.969h1.989A2.023,2.023,0,0,1,75,824H76.88a2.021,2.021,0,0,1,2.042,1.969h2.052Zm-5-12.011c-1.374,0-2.015.339-2.033.98h4.035C77.961,825.368,77.207,824.978,75.974,824.989Zm4,2.011H78.926v.994h-.943V827H73.934v.994H72.96V827H71.943v9h8.031Z'
+											transform='translate(-70.974 -824)'
+										/>
+									</svg>
 									<Link
 										href='/'
-										className='btn btn-ghost text-xl'>
-										E-Store
+										className={s.headerLink}>
+										<span className={`${s.linkText}`}>E-Store</span>
 									</Link>
 								</li>
-								<li>
+								<li className={` text-xl `}>
 									<Link
 										href='/about'
-										className='link link-info p-1'>
+										className={s.headerLink}>
 										About our store
 									</Link>
 								</li>
-								<li>
+								<li className={` text-xl `}>
 									<Link
 										href='/products'
-										className='link link-info p-1'>
+										className={s.headerLink}>
 										Products
 									</Link>
 								</li>
-								<li>
+								<li className={` text-xl `}>
 									<Link
 										href='/cart'
-										className='link link-info p-1'>
+										className={s.headerLink}>
 										Cart
 									</Link>
 								</li>

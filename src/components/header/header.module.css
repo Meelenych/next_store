@@ -1,0 +1,48 @@
+.headerLink {
+  padding-bottom: 3px;
+  position: relative;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.headerLink,
+.linkText,
+.svgIcon {
+  color: black;
+  fill: black;
+}
+
+.headerLink::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: rgb(0, 132, 219);
+  transition: all 0.3s ease-in-out;
+}
+
+.headerLink:hover,
+.navItem:hover .linkText,
+.navItem:hover .svgIcon {
+  color: rgb(0, 132, 219);
+  fill: rgb(0, 132, 219);
+  transition: color 0.3s ease-in;
+  transition: fill 0.3s ease-in;
+}
+
+.navItem:not(:hover) .svgIcon {
+  fill: black;
+  transition: fill 0.3s ease-in;
+}
+
+.headerLink:not(:hover),
+.navItem:not(:hover) .linkText {
+  color: black;
+  transition: color 0.3s ease-in;
+}
+
+.headerLink:hover::after {
+  width: 100%;
+}

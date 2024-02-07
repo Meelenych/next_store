@@ -11,7 +11,7 @@ const Top: React.FC = () => {
 	const { products } = useProduct();
 	const { addToCart } = useCart();
 	return (
-		<div>
+		<div className='h-dvh'>
 			<ToastContainer position='top-left' />
 			<ul className='grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 gap-4 p-3 sm:p-6 lg:p-10'>
 				{products?.map(

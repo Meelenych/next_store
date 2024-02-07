@@ -4,6 +4,7 @@ import { CartProvider } from '@/context/CartContext';
 import { ProductProvider } from '@/context/ProductContext';
 import '@/styles/globals.css';
 import type { AppProps } from 'next/app';
+import { Main } from 'next/document';
 
 export default function App({ Component, pageProps }: AppProps) {
 	return (
