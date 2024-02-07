@@ -23,7 +23,7 @@ export default function Hero() {
 					</Link>
 					<Link
 						href='/products'
-						className='text-sm font-semibold leading-6 text-gray-900'>
+						className='text-sm font-semibold leading-6 text-gray-900 flex hover:translate-x-2 ease-in duration-300'>
 						All products <span aria-hidden='true'>→</span>
 					</Link>
 				</div>
