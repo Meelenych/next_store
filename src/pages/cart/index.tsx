@@ -5,6 +5,7 @@ import { useProduct } from '../../context/ProductContext';
 import { Product as ProductType } from '../../types/interfaces';
 import { formatter } from '../../assets/helpers/formatter';
 import { capitalize } from '../../assets/helpers/capitalize';
+import Link from 'next/link';
 
 const cartPage = () => {
 	const { cartItems }: { cartItems: { [key: string]: number } } = useCart();
@@ -114,6 +115,15 @@ const cartPage = () => {
 						</tr>
 					</tfoot>
 				</table>
+			</div>
+			<div className='grid grid-cols-3 gap-9'>
+				<button className=' btn btn-error'>Delete selected</button>
+				<button className=' btn btn-warning'>Clear cart</button>
+				<Link
+					href='/checkout'
+					className=' btn btn-success'>
+					Confirm order
+				</Link>
 			</div>
 		</div>
 	) : (
