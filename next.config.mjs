@@ -1,9 +1,21 @@
 /** @type {import('next').NextConfig} */
+// const nextConfig = {
+// 	reactStrictMode: true,
+// 	images: {
+// 		domains: ['cdn.pixabay.com'],
+// 	},
+// };
+
+// export default nextConfig;
+
 const nextConfig = {
-	reactStrictMode: true,
 	images: {
-		domains: ['cdn.pixabay.com'],
+		remotePatterns: [
+			{
+				protocol: 'https',
+				hostname: 'cdn.pixabay.com',
+			},
+		],
 	},
 };
-
 export default nextConfig;

@@ -14,7 +14,7 @@ const ProductId: NextPage = () => {
 	const { addToCart } = useCart();
 
 	const productData = products.find(
-		(product: ProductType) => product?.id === productId,
+		(product: ProductType) => product?._id === productId,
 	);
 
 	return (

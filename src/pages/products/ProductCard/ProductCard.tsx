@@ -65,7 +65,7 @@ const ProductCard = ({
 					<div className='card-actions justify-between'>
 						<Link
 							href={`/products/[productId]`}
-							as={`/products/${product?.id}`}
+							as={`/products/${product?._id}`}
 							className='btn btn-accent'>
 							Show info
 						</Link>
