@@ -4,6 +4,7 @@ export interface Product {
 	type: string;
 	price: number;
 	description: string;
+	fulldesciption: string;
 	image: string;
 	rating: number;
 }

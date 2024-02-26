@@ -1,10 +1,9 @@
-import Footer from '@/components/footer/footer';
-import Header from '@/components/header/header';
+import Footer from '../components/footer/Footer';
+import Header from '@/components/header/Header';
 import { CartProvider } from '@/context/CartContext';
 import { ProductProvider } from '@/context/ProductContext';
 import '@/styles/globals.css';
 import type { AppProps } from 'next/app';
-import { Main } from 'next/document';
 
 export default function App({ Component, pageProps }: AppProps) {
 	return (

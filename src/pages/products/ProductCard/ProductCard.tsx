@@ -6,6 +6,7 @@ import { formatter } from '../../../assets/helpers/formatter';
 import { capitalize } from '../../../assets/helpers/capitalize';
 import Star from '../../../assets/svg/Star';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const ProductCard = ({
 	product,
@@ -14,7 +15,7 @@ const ProductCard = ({
 	product: ProductType;
 	addToCart: (item: ProductType) => void;
 }) => {
-	const [rating, setRating] = useState<number>(product.rating);
+	const [rating, setRating] = useState<number>(product?.rating);
 
 	const handleRating = (selectedRating: number) => {
 		setRating(selectedRating);
@@ -50,19 +51,19 @@ const ProductCard = ({
 			</div>
 			<div className='card card-compact bg-base-100 shadow-xl'>
 				<figure>
-					<img
-						src={product.image}
-						alt={product.name}
+					<Image
+						src={product?.image}
+						alt={product?.name || ''}
 					/>
 				</figure>
 				<div className='card-body'>
-					<h2 className='card-title'>{capitalize(product.name)}</h2>
-					<p>{product.description}</p>
-					<p>Price: {formatter(product.price)}</p>
+					<h2 className='card-title'>{capitalize(product?.name || '')}</h2>
+					<p>{product?.description}</p>
+					<p>Price: {formatter(product?.price || 0)}</p>
 					<div className='card-actions justify-between'>
 						<Link
 							href={`/products/[productId]`}
-							as={`/products/${product.id}`}
+							as={`/products/${product?.id}`}
 							className='btn btn-accent'>
 							Show info
 						</Link>
@@ -70,7 +71,7 @@ const ProductCard = ({
 							className='btn btn-primary'
 							onClick={() => {
 								addToCart(product);
-								toast.success(`${capitalize(product.name)} added to cart!`);
+								toast.success(`${capitalize(product?.name || '')} added to cart!`);
 							}}>
 							Add to cart
 						</button>

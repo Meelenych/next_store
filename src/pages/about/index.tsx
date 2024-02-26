@@ -1,6 +1,7 @@
 import React from 'react';
+import Image from 'next/image';
 
-const aboutPage = () => {
+const AboutPage = () => {
 	return (
 		<div className='p-3 sm:p-6 lg:p-10'>
 			<h2 className='text-2xl text-center mb-4'>Greetings!</h2>
@@ -12,7 +13,7 @@ const aboutPage = () => {
 					goodness directly to your doorstep.
 				</p>
 				<div className='rounded-xl overflow-hidden ml-auto min-h-44 min-w-80 max-w-96'>
-					<img
+					<Image
 						src='https://cdn.pixabay.com/photo/2015/05/04/10/16/vegetables-752153_1280.jpg'
 						alt=''
 					/>
@@ -27,7 +28,7 @@ const aboutPage = () => {
 					local farmers and top-tier suppliers.
 				</p>
 				<div className='rounded-xl overflow-hidden min-h-44 min-w-80 max-w-96'>
-					<img
+					<Image
 						src='https://cdn.pixabay.com/photo/2016/04/06/06/04/farmers-1311017_1280.jpg'
 						alt=''
 					/>
@@ -43,7 +44,7 @@ const aboutPage = () => {
 					receive nothing but the best.
 				</p>
 				<div className='rounded-xl overflow-hidden min-h-44 min-w-80 max-w-96 ml-auto'>
-					<img
+					<Image
 						src='https://cdn.pixabay.com/photo/2015/12/09/17/11/vegetables-1085063_1280.jpg'
 						alt=''
 					/>
@@ -58,7 +59,7 @@ const aboutPage = () => {
 					contributing to a healthier planet.
 				</p>
 				<div className='rounded-xl overflow-hidden min-h-44 min-w-80 max-w-96'>
-					<img
+					<Image
 						src='https://cdn.pixabay.com/photo/2017/01/26/08/51/fruit-2010100_960_720.jpg'
 						alt=''
 					/>
@@ -79,4 +80,4 @@ const aboutPage = () => {
 	);
 };
 
-export default aboutPage;
+export default AboutPage;

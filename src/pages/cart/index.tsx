@@ -6,8 +6,9 @@ import { Product as ProductType } from '../../types/interfaces';
 import { formatter } from '../../assets/helpers/formatter';
 import { capitalize } from '../../assets/helpers/capitalize';
 import Link from 'next/link';
+import Image from 'next/image';
 
-const cartPage = () => {
+const CartPage = () => {
 	const { cartItems }: { cartItems: { [key: string]: number } } = useCart();
 	const { products } = useProduct();
 
@@ -79,7 +80,7 @@ const cartPage = () => {
 											<div className='flex items-center gap-3'>
 												<div className='hidden sm:avatar'>
 													<div className='mask mask-squircle w-12 h-12'>
-														<img
+														<Image
 															src={item.image}
 															alt={item.name}
 														/>
@@ -147,4 +148,4 @@ const cartPage = () => {
 	);
 };
 
-export default cartPage;
+export default CartPage;

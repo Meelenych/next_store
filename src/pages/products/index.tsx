@@ -53,17 +53,10 @@ const ProductsPage: React.FC = () => {
 		console.log('Selected filter value:', selectedValue);
 		setFilterValue(selectedValue);
 	};
-
+	// eslint-disable-next-line react-hooks/exhaustive-deps
 	useEffect(() => {
 		handleSearchAndFilter();
 	}, [searchValue, filterValue]);
-
-	// useEffect(() => {
-	// 	fetch('http://localhost:5000/api/e-store/products')
-	// 		.then(res => res.json())
-	// 		.then(data => setProducts(data))
-	// 		.catch(error => console.error(error));
-	// }, []);
 
 	return (
 		<>
@@ -97,14 +90,14 @@ const ProductsPage: React.FC = () => {
 				{searchResult.length > 0
 					? searchResult?.map((product: ProductType) => (
 							<ProductCard
-								key={product.id}
+								key={product?.id}
 								product={product}
 								addToCart={addToCart}
 							/>
 					  ))
 					: products?.map((product: ProductType) => (
 							<ProductCard
-								key={product.id}
+								key={product?.id}
 								product={product}
 								addToCart={addToCart}
 							/>

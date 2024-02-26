@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import React from 'react';
 
-const signupPage = () => {
+const SignupPage = () => {
 	return (
 		<div className='flex flex-col items-center content-center mt-3 sm:mt-10 lg:mt-20 h-dvh'>
 			<h1 className='text-3xl font-bold text-center'>Sign up here</h1>
@@ -56,4 +56,4 @@ const signupPage = () => {
 	);
 };
 
-export default signupPage;
+export default SignupPage;

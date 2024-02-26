@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 
-const loginPage = () => {
+const LoginPage = () => {
 	return (
 		<div className='flex flex-col items-center content-center mt-3 sm:mt-10 lg:mt-20 h-dvh'>
 			<h1 className='text-3xl font-bold text-center'>Log in here</h1>
@@ -36,4 +36,4 @@ const loginPage = () => {
 	);
 };
 
-export default loginPage;
+export default LoginPage;

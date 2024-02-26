@@ -1,7 +1,7 @@
 import React from 'react';
 
-const orderPage = () => {
+const OrderPage = () => {
 	return <div>orderPage</div>;
 };
 
-export default orderPage;
+export default OrderPage;

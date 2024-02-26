@@ -2,10 +2,10 @@ import React from 'react';
 import Link from 'next/link';
 import s from './footer.module.css';
 
-const footer = () => {
+const Footer = () => {
 	return (
 		<>
-			<footer className='sticky bottom-0 flex flex-col sm:flex-row items-center justify-between p-4 bg-sky-600 text-neutral-content text-xs sm:text-base'>
+			<footer className='sticky bottom-0 flex flex-col sm:flex-row items-center justify-between p-4 bg-sky-600 text-neutral-content text-xs sm:text-base z-50'>
 				<aside className='flex items-center'>
 					<Link href='/'>
 						<svg
@@ -58,4 +58,4 @@ const footer = () => {
 	);
 };
 
-export default footer;
+export default Footer;

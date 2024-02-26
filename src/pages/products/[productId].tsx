@@ -5,15 +5,16 @@ import type { NextPage } from 'next';
 import { useRouter } from 'next/router';
 import { ToastContainer, toast } from 'react-toastify';
 import { Product as ProductType } from '../../types/interfaces';
+import Image from 'next/image';
 
-const productId: NextPage = () => {
+const ProductId: NextPage = () => {
 	const router = useRouter();
 	const { productId } = router.query;
 	const { products } = useProduct();
 	const { addToCart } = useCart();
 
 	const productData = products.find(
-		(product: ProductType) => product.id === productId,
+		(product: ProductType) => product?.id === productId,
 	);
 
 	return (
@@ -21,7 +22,7 @@ const productId: NextPage = () => {
 			<ToastContainer position='top-left' />
 			<div className='card lg:card-side bg-base-100 shadow-xl'>
 				<figure>
-					<img
+					<Image
 						src={productData?.image}
 						alt={productData?.name}
 					/>
@@ -45,4 +46,4 @@ const productId: NextPage = () => {
 	);
 };
 
-export default productId;
+export default ProductId;

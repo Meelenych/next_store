@@ -5,6 +5,8 @@ export const dummyItems = [
 		type: 'vegetable',
 		price: 20,
 		description: 'Fresh cabbage every day.',
+		fulldescription:
+			'Fresh cabbage every day. Fresh cabbage every day. Fresh cabbage every day. Fresh cabbage every day. Fresh cabbage every day. Fresh cabbage every day.',
 		image:
 			'https://cdn.pixabay.com/photo/2018/10/03/22/08/kohl-3722517_960_720.jpg',
 		rating: 3,

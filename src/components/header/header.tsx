@@ -1,9 +1,10 @@
 'use client';
 import Link from 'next/dist/client/link';
+import Image from 'next/image';
 import React, { useState } from 'react';
 import s from './header.module.css';
 
-const header = () => {
+const Header = () => {
 	const [logIn, setLogIn] = useState(false);
 
 	return (
@@ -104,7 +105,7 @@ const header = () => {
 											role='button'
 											className='btn btn-ghost btn-circle avatar'>
 											<div className='w-10 rounded-full'>
-												<img
+												<Image
 													alt='Tailwind CSS Navbar component'
 													src='https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg'
 												/>
@@ -154,4 +155,4 @@ const header = () => {
 	);
 };
 
-export default header;
+export default Header;
