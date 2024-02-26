@@ -7,4 +7,5 @@ export interface Product {
 	fulldesciption: string;
 	image: string;
 	rating: number;
+	full_description: string;
 }
