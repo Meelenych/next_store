@@ -1,5 +1,5 @@
 'use client';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useCart } from '../../context/CartContext';
 import { useProduct } from '../../context/ProductContext';
 import { Product as ProductType } from '../../types/interfaces';
@@ -11,13 +11,27 @@ import Image from 'next/image';
 const CartPage = () => {
 	const { cartItems }: { cartItems: { [key: string]: number } } = useCart();
 	const { products } = useProduct();
+	const { removeFromCart } = useCart();
+	const { clearCart } = useCart();
 
-	const cartItemsArray = Object.entries(cartItems).map(([_id, quantity]) => ({
-		_id,
-		quantity,
-	}));
+	type SelectedItems = {
+		[itemId: string]: boolean;
+	};
 
-	const totalCost = cartItemsArray.reduce((acc, { _id, quantity }) => {
+	const [cartItemsList, setCartItemsList] = useState<
+		{ _id: string; quantity: number }[]
+	>([]);
+	const [selectedItems, setSelectedItems] = useState<SelectedItems>({});
+
+	useEffect(() => {
+		const cartItemsArray = Object.entries(cartItems).map(([_id, quantity]) => ({
+			_id,
+			quantity,
+		}));
+		setCartItemsList(cartItemsArray);
+	}, [cartItems]);
+
+	const totalCost = cartItemsList.reduce((acc, { _id, quantity }) => {
 		const item = products.find((product: { _id: string }) => product._id === _id);
 		if (item && quantity !== undefined) {
 			return acc + item.price * quantity;
@@ -25,7 +39,28 @@ const CartPage = () => {
 		return acc;
 	}, 0);
 
-	return cartItemsArray.length ? (
+	const handleCheckboxChange = (
+		event: { target: { checked: boolean } },
+		itemId: string,
+	) => {
+		setSelectedItems(prevSelectedItems => ({
+			...prevSelectedItems,
+			[itemId]: event.target.checked,
+		}));
+	};
+
+	const deleteSelected = () => {
+		const selectedIds = Object.keys(selectedItems).filter(
+			itemId => selectedItems[itemId],
+		);
+		if (selectedIds.length > 0) {
+			selectedIds.forEach(itemId => removeFromCart(itemId));
+		}
+		// Reset selected items state after deletion
+		setSelectedItems({});
+	};
+
+	return cartItemsList.length ? (
 		<div className='p-0 sm:px-10 min-h-dvh'>
 			<div className='flex flex-row items-center justify-center mt-6'>
 				<svg
@@ -63,7 +98,7 @@ const CartPage = () => {
 						</tr>
 					</thead>
 					<tbody>
-						{cartItemsArray.map(({ _id, quantity }) => {
+						{cartItemsList.map(({ _id, quantity }) => {
 							const item = products.find(
 								(product: ProductType) => product?._id === _id,
 							);
@@ -75,6 +110,8 @@ const CartPage = () => {
 												<input
 													type='checkbox'
 													className='checkbox checkbox-xs sm:checkbox-md'
+													checked={selectedItems[_id] || false}
+													onChange={e => handleCheckboxChange(e, _id)}
 												/>
 											</label>
 										</th>
@@ -122,8 +159,16 @@ const CartPage = () => {
 				</table>
 			</div>
 			<div className='grid grid-cols-3 gap-9'>
-				<button className=' btn btn-error'>Delete selected</button>
-				<button className=' btn btn-warning'>Clear cart</button>
+				<button
+					className=' btn btn-error'
+					onClick={() => deleteSelected()}>
+					Delete selected
+				</button>
+				<button
+					className=' btn btn-warning'
+					onClick={() => clearCart()}>
+					Clear cart
+				</button>
 				<Link
 					href='/checkout'
 					className=' btn btn-success'>
