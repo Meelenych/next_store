@@ -6,7 +6,7 @@ const CartContext = createContext();
 const cartReducer = (state, action) => {
 	switch (action.type) {
 		case 'ADD_TO_CART':
-			const itemId = action.payload.id;
+			const itemId = action.payload._id;
 			return {
 				...state,
 				[itemId]: (state[itemId] || 0) + 1,

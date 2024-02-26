@@ -12,13 +12,13 @@ const CartPage = () => {
 	const { cartItems }: { cartItems: { [key: string]: number } } = useCart();
 	const { products } = useProduct();
 
-	const cartItemsArray = Object.entries(cartItems).map(([id, quantity]) => ({
-		id,
+	const cartItemsArray = Object.entries(cartItems).map(([_id, quantity]) => ({
+		_id,
 		quantity,
 	}));
 
-	const totalCost = cartItemsArray.reduce((acc, { id, quantity }) => {
-		const item = products.find((product: { id: string }) => product.id === id);
+	const totalCost = cartItemsArray.reduce((acc, { _id, quantity }) => {
+		const item = products.find((product: { _id: string }) => product._id === _id);
 		if (item && quantity !== undefined) {
 			return acc + item.price * quantity;
 		}
@@ -63,11 +63,13 @@ const CartPage = () => {
 						</tr>
 					</thead>
 					<tbody>
-						{cartItemsArray.map(({ id, quantity }) => {
-							const item = products.find((product: ProductType) => product.id === id);
+						{cartItemsArray.map(({ _id, quantity }) => {
+							const item = products.find(
+								(product: ProductType) => product?._id === _id,
+							);
 							if (item) {
 								return (
-									<tr key={id}>
+									<tr key={_id}>
 										<th>
 											<label>
 												<input
@@ -81,14 +83,16 @@ const CartPage = () => {
 												<div className='hidden sm:avatar'>
 													<div className='mask mask-squircle w-12 h-12'>
 														<Image
-															src={item.image}
-															alt={item.name}
+															src={item?.image}
+															alt={item?.name}
+															width={500}
+															height={300}
 														/>
 													</div>
 												</div>
 												<div>
 													<div className='font-bold text-xs sm:text-lg'>
-														{capitalize(item.name)}
+														{capitalize(item?.name)}
 													</div>
 												</div>
 											</div>
@@ -98,7 +102,7 @@ const CartPage = () => {
 										</td>
 										<td className='text-xs sm:text-base'>{formatter(item.price)}</td>
 										<th className='text-xs sm:text-base'>
-											{formatter(item.price * quantity)}
+											{formatter(item?.price * quantity)}
 										</th>
 									</tr>
 								);

@@ -18,7 +18,7 @@ const Top: React.FC = () => {
 					(product: ProductType) =>
 						product.rating >= 4 && (
 							<ProductCard
-								key={product.id}
+								key={product._id}
 								product={product}
 								addToCart={addToCart}
 							/>

@@ -15,6 +15,8 @@ const AboutPage = () => {
 				<div className='rounded-xl overflow-hidden ml-auto min-h-44 min-w-80 max-w-96'>
 					<Image
 						src='https://cdn.pixabay.com/photo/2015/05/04/10/16/vegetables-752153_1280.jpg'
+						width={500}
+						height={300}
 						alt=''
 					/>
 				</div>
@@ -30,6 +32,8 @@ const AboutPage = () => {
 				<div className='rounded-xl overflow-hidden min-h-44 min-w-80 max-w-96'>
 					<Image
 						src='https://cdn.pixabay.com/photo/2016/04/06/06/04/farmers-1311017_1280.jpg'
+						width={500}
+						height={300}
 						alt=''
 					/>
 				</div>
@@ -46,6 +50,8 @@ const AboutPage = () => {
 				<div className='rounded-xl overflow-hidden min-h-44 min-w-80 max-w-96 ml-auto'>
 					<Image
 						src='https://cdn.pixabay.com/photo/2015/12/09/17/11/vegetables-1085063_1280.jpg'
+						width={500}
+						height={300}
 						alt=''
 					/>
 				</div>
@@ -61,6 +67,8 @@ const AboutPage = () => {
 				<div className='rounded-xl overflow-hidden min-h-44 min-w-80 max-w-96'>
 					<Image
 						src='https://cdn.pixabay.com/photo/2017/01/26/08/51/fruit-2010100_960_720.jpg'
+						width={500}
+						height={300}
 						alt=''
 					/>
 				</div>

@@ -90,14 +90,14 @@ const ProductsPage: React.FC = () => {
 				{searchResult.length > 0
 					? searchResult?.map((product: ProductType) => (
 							<ProductCard
-								key={product?.id}
+								key={product?._id}
 								product={product}
 								addToCart={addToCart}
 							/>
 					  ))
 					: products?.map((product: ProductType) => (
 							<ProductCard
-								key={product?.id}
+								key={product?._id}
 								product={product}
 								addToCart={addToCart}
 							/>

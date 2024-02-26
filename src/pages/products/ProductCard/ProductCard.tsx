@@ -54,6 +54,8 @@ const ProductCard = ({
 					<Image
 						src={product?.image}
 						alt={product?.name || ''}
+						width={500}
+						height={300}
 					/>
 				</figure>
 				<div className='card-body'>
